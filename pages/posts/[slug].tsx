@@ -40,6 +40,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
     image: `${WEBSITE_HOST_URL}${frontMatter.image}`,
     date: frontMatter.date,
     type: 'article',
+    tags: frontMatter.tags,
   };
   return (
     <Layout customMeta={customMeta}>
