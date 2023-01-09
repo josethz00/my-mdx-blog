@@ -14,23 +14,17 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
   return (
     <Layout>
       <h1>Home Page</h1>
-      <p>Next.js starter for your next blog or personal site. Built with:</p>
+      <p>Welcome to my blog! Here I write about my studies and thoughts:</p>
       <ul className="list-disc pl-4 my-6">
-        <li>Next.js</li>
-        <li className="mt-2">Typescript</li>
-        <li className="mt-2">MDX</li>
-        <li className="mt-2">Tailwind CSS</li>
+        <li>Software Engineering</li>
+        <li className="mt-2">Computer Science</li>
+        <li className="mt-2">Economics</li>
+        <li className="mt-2">Philosophy</li>
+        <li className="mt-2">Databases</li>
       </ul>
 
-      <a
-        href="https://github.com/ChangoMan/nextjs-typescript-mdx-blog"
-        className="inline-block px-7 py-3 rounded-md text-white dark:text-white bg-blue-600 hover:bg-blue-700 hover:text-white dark:hover:text-white"
-      >
-        Get the source code!
-      </a>
-
       {posts.map((post) => (
-        <article key={post.slug} className="mt-12">
+        <article key={post.slug} className="mt-12 rounded-md bg-black/5 dark:bg-white/5 p-4 hover:bg-[#f5f5f5] dark:hover:bg-[#1a1a1a]">
           <p className="mb-1 text-sm text-gray-500 dark:text-gray-400">
             {format(parseISO(post.date), 'MMMM dd, yyyy')}
           </p>
@@ -41,12 +35,20 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
               </a>
             </Link>
           </h1>
+          {post.tags && (
+            <ul className="flex flex-wrap mb-2 -ml-1 text-sm text-gray-500 dark:text-gray-400">
+              {post.tags.map((tag) => (
+                <li key={tag} className="ml-1 text-gray">
+                  <Link as={`/tags/${tag}`} href={`/tags/[tag]`}>
+                    <a className="hover:text-blue-400 dark:hover:text-blue-400">
+                      #{tag}
+                    </a>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
           <p className="mb-3">{post.description}</p>
-          <p>
-            <Link as={`/posts/${post.slug}`} href={`/posts/[slug]`}>
-              <a>Read More</a>
-            </Link>
-          </p>
         </article>
       ))}
     </Layout>
@@ -54,7 +56,7 @@ export const Index = ({ posts }: IndexProps): JSX.Element => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllPosts(['date', 'description', 'slug', 'title']);
+  const posts = getAllPosts(['date', 'description', 'slug', 'title', 'tags']);
 
   return {
     props: { posts },
