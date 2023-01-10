@@ -26,6 +26,7 @@
     ]
   },
   "dependencies": {
+    "@dhaiwat10/react-link-preview": "^1.14.2",
     "@tailwindcss/typography": "^0.5.7",
     "date-fns": "^2.29.2",
     "gray-matter": "^4.0.3",
