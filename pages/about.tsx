@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/Layout';
+import { FiTwitter, FiLinkedin, FiGithub } from 'react-icons/fi';
 
 export const About = (): JSX.Element => {
   return (
@@ -19,6 +20,23 @@ export const About = (): JSX.Element => {
       <p>
         In this website you will find articles written by me, and also a list of my favorite books and articles.
       </p>
+      <br />
+
+      <h2>
+        Social Media
+      </h2>
+
+      <div className='flex flex-row mt-5'>
+        <a href='' className='mr-2' target='_blank'>
+          <FiTwitter size={24} />
+        </a>
+        <a href='' className='mr-2' target='_blank'>
+          <FiLinkedin size={24} />
+        </a>
+        <a href='' className='mr-2' target='_blank'>
+          <FiGithub size={24} />
+        </a>
+      </div>
     </Layout>
   );
 };
