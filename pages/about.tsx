@@ -27,14 +27,14 @@ export const About = (): JSX.Element => {
       </h2>
 
       <div className='flex flex-row mt-5'>
-        <a href='' className='mr-2' target='_blank'>
-          <FiTwitter size={24} />
+        <a href='https://twitter.com/thz00' className='mr-4' target='_blank' rel="noreferrer">
+          <FiTwitter size={26} />
         </a>
-        <a href='' className='mr-2' target='_blank'>
-          <FiLinkedin size={24} />
+        <a href='https://www.linkedin.com/in/jose-thomaz' className='mr-4' target='_blank' rel="noreferrer">
+          <FiLinkedin size={26} />
         </a>
-        <a href='' className='mr-2' target='_blank'>
-          <FiGithub size={24} />
+        <a href='https://github.com/josethz00' target='_blank' rel="noreferrer">
+          <FiGithub size={26} />
         </a>
       </div>
     </Layout>
